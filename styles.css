@@ -58,8 +58,9 @@ h1 { font-family: var(--display); font-size: clamp(2.4rem, 6vw, 4.4rem); line-he
 .pills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .pill {
   border: 1px solid var(--line); border-radius: 999px; padding: .35rem .8rem;
-  color: var(--muted); font-size: .9rem;
+  color: var(--muted); font-size: .9rem; background: transparent; cursor: pointer;
 }
+.pill.active { border-color: var(--gold); color: var(--gold); }
 footer { padding: 2rem 6vw; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
 .hidden { display: none !important; }
 .app-shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
@@ -78,7 +79,7 @@ footer { padding: 2rem 6vw; color: var(--muted); font-size: .85rem; border-top: 
 .deck { max-width: 420px; margin: 0 auto; }
 .person { min-height: 420px; display: flex; flex-direction: column; }
 .photo {
-  height: 280px; border-radius: 14px; margin-bottom: 1rem;
+  height: 320px; border-radius: 14px; margin-bottom: 1rem;
   background-size: cover; background-position: center;
   display: flex; align-items: flex-end; padding: 1rem;
   color: white; font-weight: 700; font-size: 1.3rem;
@@ -91,6 +92,7 @@ footer { padding: 2rem 6vw; color: var(--muted); font-size: .85rem; border-top: 
 .row {
   display: flex; justify-content: space-between; align-items: center;
   background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem;
+  gap: .6rem; flex-wrap: wrap;
 }
 .chat-pane { min-height: 360px; display: flex; flex-direction: column; }
 .msgs { flex: 1; display: flex; flex-direction: column; gap: .4rem; margin-bottom: .8rem; }
@@ -110,7 +112,13 @@ label { display: block; margin-bottom: .8rem; font-size: .88rem; color: var(--mu
 .close { position: absolute; right: .8rem; top: .5rem; background: none; border: 0; color: var(--muted); font-size: 1.4rem; cursor: pointer; }
 .switch { margin-top: .8rem; color: var(--muted); }
 .switch button { background: none; border: 0; color: var(--gold); cursor: pointer; font: inherit; }
-.filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+.toast {
+  position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+  background: #1e1626; border: 1px solid var(--line); padding: .7rem 1rem;
+  border-radius: 999px; z-index: 30; color: var(--text); font-size: .9rem;
+}
+.loc-ok { color: var(--ok); font-size: .85rem; }
 @media (max-width: 800px) {
   .nav-links { display: none; }
   .app-shell { grid-template-columns: 1fr; }
